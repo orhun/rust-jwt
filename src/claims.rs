@@ -29,25 +29,25 @@ pub type SecondsSinceEpoch = u64;
 /// [JWT specification](https://tools.ietf.org/html/rfc7519#page-9).
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct RegisteredClaims {
-    #[serde(rename = "iss", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "iss")]
     pub issuer: Option<String>,
 
-    #[serde(rename = "sub", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "sub")]
     pub subject: Option<String>,
 
-    #[serde(rename = "aud", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "aud")]
     pub audience: Option<String>,
 
-    #[serde(rename = "exp", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "exp")]
     pub expiration: Option<SecondsSinceEpoch>,
 
-    #[serde(rename = "nbf", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "nbf")]
     pub not_before: Option<SecondsSinceEpoch>,
 
-    #[serde(rename = "iat", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "iat")]
     pub issued_at: Option<SecondsSinceEpoch>,
 
-    #[serde(rename = "jti", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "jti")]
     pub json_web_token_id: Option<String>,
 }
 
