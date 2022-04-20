@@ -30,14 +30,14 @@ pub trait JoseHeader {
 /// defined fields for common fields.
 #[derive(Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Header {
-    #[serde(rename = "alg")]
-    pub algorithm: AlgorithmType,
+    #[serde(rename = "typ")]
+    pub type_: Option<HeaderType>,
 
     #[serde(rename = "kid")]
     pub key_id: Option<String>,
 
-    #[serde(rename = "typ")]
-    pub type_: Option<HeaderType>,
+    #[serde(rename = "alg")]
+    pub algorithm: AlgorithmType,
 
     #[serde(rename = "cty", skip_serializing_if = "Option::is_none")]
     pub content_type: Option<HeaderContentType>,
