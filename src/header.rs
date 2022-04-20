@@ -28,7 +28,7 @@ pub trait JoseHeader {
 
 /// Generic [JWT header](https://tools.ietf.org/html/rfc7519#page-11) with
 /// defined fields for common fields.
-#[derive(Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct Header {
     #[serde(rename = "typ")]
     pub type_: Option<HeaderType>,
@@ -41,6 +41,17 @@ pub struct Header {
 
     #[serde(rename = "cty", skip_serializing_if = "Option::is_none")]
     pub content_type: Option<HeaderContentType>,
+}
+
+impl Default for Header {
+    fn default() -> Header {
+        Header {
+            type_: Some(HeaderType::JsonWebToken),
+            key_id: None,
+            algorithm: AlgorithmType::Hs256,
+            content_type: None,
+        }
+    }
 }
 
 impl JoseHeader for Header {
