@@ -33,10 +33,10 @@ pub struct Header {
     #[serde(rename = "alg")]
     pub algorithm: AlgorithmType,
 
-    #[serde(rename = "kid", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "kid")]
     pub key_id: Option<String>,
 
-    #[serde(rename = "typ", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "typ")]
     pub type_: Option<HeaderType>,
 
     #[serde(rename = "cty", skip_serializing_if = "Option::is_none")]
