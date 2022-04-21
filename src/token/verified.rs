@@ -35,8 +35,8 @@ impl<'a, H: JoseHeader, C> VerifyWithKey<Token<H, C, Verified>> for Token<H, C, 
             claims_str,
             signature_str,
         } = self.signature;
-
-        if key.verify(header_str, claims_str, signature_str)? {
+        let signature_str = signature_str.replace('+', "-").replace('/', "_");
+        if key.verify(header_str, claims_str, &signature_str)? {
             Ok(Token {
                 header: self.header,
                 claims: self.claims,
