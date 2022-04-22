@@ -16,7 +16,7 @@
 //! let mut claims = BTreeMap::new();
 //! claims.insert("sub", "someone");
 //! let token_str = claims.sign_with_key(&key)?;
-//! assert_eq!(token_str, "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzb21lb25lIn0.5wwE1sBrs-vftww_BGIuTVDeHtc1Jsjo-fiHhDwR8m0");
+//! assert_eq!(token_str, "eyJ0eXAiOiJKV1QiLCJraWQiOm51bGwsImFsZyI6IkhTMjU2In0.eyJzdWIiOiJzb21lb25lIn0.Ygdj2-gjqS8RZ0ORCpewqwxvM0lphLiKUK3YthV9t74");
 //! # Ok(())
 //! # }
 //! # try_main().unwrap()
@@ -33,7 +33,7 @@
 //! # use jwt::Error;
 //! # fn try_main() -> Result<(), Error> {
 //! let key: Hmac<Sha256> = Hmac::new_from_slice(b"some-secret")?;
-//! let token_str = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzb21lb25lIn0.5wwE1sBrs-vftww_BGIuTVDeHtc1Jsjo-fiHhDwR8m0";
+//! let token_str = "eyJ0eXAiOiJKV1QiLCJraWQiOm51bGwsImFsZyI6IkhTMjU2In0.eyJzdWIiOiJzb21lb25lIn0.Ygdj2-gjqS8RZ0ORCpewqwxvM0lphLiKUK3YthV9t74";
 //! let claims: BTreeMap<String, String> = token_str.verify_with_key(&key)?;
 //! assert_eq!(claims["sub"], "someone");
 //! # Ok(())
@@ -62,7 +62,7 @@
 //! let mut claims = BTreeMap::new();
 //! claims.insert("sub", "someone");
 //! let token = Token::new(header, claims).sign_with_key(&key)?;
-//! assert_eq!(token.as_str(), "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzb21lb25lIn0.WM_WnPUkHK6zm6Wz7zk1kmIxz990Te7nlDjQ3vzcye29szZ-Sj47rLNSTJNzpQd_");
+//! assert_eq!(token.as_str(), "eyJ0eXAiOiJKV1QiLCJraWQiOm51bGwsImFsZyI6IkhTMzg0In0.eyJzdWIiOiJzb21lb25lIn0.KF-8bpxR3gmPWgK_167GCs3A-_Yl6xnt7UG4mJI0QIu6uyzKSx7OEduM0QMd9fV2");
 //! # Ok(())
 //! # }
 //! # try_main().unwrap()
@@ -78,7 +78,7 @@
 //! # use jwt::Error;
 //! # fn try_main() -> Result<(), Error> {
 //! let key: Hmac<Sha384> = Hmac::new_from_slice(b"some-secret")?;
-//! let token_str = "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzb21lb25lIn0.WM_WnPUkHK6zm6Wz7zk1kmIxz990Te7nlDjQ3vzcye29szZ-Sj47rLNSTJNzpQd_";
+//! let token_str = "eyJ0eXAiOiJKV1QiLCJraWQiOm51bGwsImFsZyI6IkhTMzg0In0.eyJzdWIiOiJzb21lb25lIn0.KF-8bpxR3gmPWgK_167GCs3A-_Yl6xnt7UG4mJI0QIu6uyzKSx7OEduM0QMd9fV2";
 //! let token: Token<Header, BTreeMap<String, String>, _> = token_str.verify_with_key(&key)?;
 //! let header = token.header();
 //! let claims = token.claims();

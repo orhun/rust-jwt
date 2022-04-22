@@ -163,7 +163,7 @@ mod tests {
 
         let signed_token = claims.sign_with_key(&key)?;
 
-        assert_eq!(signed_token, "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiSm9obiBEb2UifQ.LlTGHPZRXbci-y349jXXN0byQniQQqwKGybzQCFIgY0");
+        assert_eq!(signed_token, "eyJ0eXAiOiJKV1QiLCJraWQiOm51bGwsImFsZyI6IkhTMjU2In0.eyJuYW1lIjoiSm9obiBEb2UifQ.ZAEgz9wimgebKLrV_ykyZWzgqIht7xxOYT9AvDWX7mU");
         Ok(())
     }
 
@@ -184,7 +184,7 @@ mod tests {
         let token = Token::new(header, claims);
         let signed_token = token.sign_with_store(&key_store)?;
 
-        assert_eq!(signed_token.as_str(), "eyJhbGciOiJIUzUxMiIsImtpZCI6InNlY29uZF9rZXkifQ.eyJuYW1lIjoiSmFuZSBEb2UifQ.t2ON5s8DDb2hefBIWAe0jaEcp-T7b2Wevmj0kKJ8BFxKNQURHpdh4IA-wbmBmqtiCnqTGoRdqK45hhW0AOtz0A");
+        assert_eq!(signed_token.as_str(), "eyJ0eXAiOiJKV1QiLCJraWQiOiJzZWNvbmRfa2V5IiwiYWxnIjoiSFM1MTIifQ.eyJuYW1lIjoiSmFuZSBEb2UifQ.0p8AT9YqR96Dnmq-9l1AsJN0yARLhfVcanGlwFHOYF4cgBb8Elra7VyHdFUGNxzax8hfmRJsLZWyabdiljN1Gg");
         Ok(())
     }
 }
